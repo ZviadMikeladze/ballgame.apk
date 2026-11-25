@@ -1,0 +1,6 @@
+{
+  "name": "Ricochet Foundry",
+  "description": "A multi-level physics ball arcade game featuring 8 handcrafted arenas, portals, gravity wells, and a persistent upgrade workshop.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

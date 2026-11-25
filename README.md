@@ -1,11 +1,34 @@
-<div align="center">
+# Ricochet Foundry
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Multi-level physics ball arcade game built with React, TypeScript, Tailwind CSS, HTML5 Canvas, and Capacitor for Android.
 
-  <h1>Built with AI Studio</h2>
+## Local Development
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+```bash
+npm install
+npm run dev
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Automatic Android APK Build (GitHub Actions)
 
-</div>
+Every push to `main` (or manual trigger from the **Actions** tab) runs `.github/workflows/build-apk.yml`:
+
+1. Builds the web bundle (`npm run build`).
+2. Initializes and syncs the Capacitor Android project (`npx cap add android && npx cap sync android`).
+3. Compiles `app-debug.apk` with Gradle and uploads it as a workflow artifact named **`ricochet-foundry-debug-apk`**.
+
+To download the APK on GitHub:
+1. Open your repository on GitHub and click the **Actions** tab.
+2. Select the latest **Build Android APK** workflow run.
+3. Scroll down to **Artifacts** and download **`ricochet-foundry-debug-apk`**.
+
+## Local Android Studio / Google Play Release (`.aab`)
+
+```bash
+npm run build
+npx cap add android
+npx cap sync android
+npx cap open android
+```
+
+In Android Studio, use **Build → Generate Signed Bundle / APK → Android App Bundle** to create a signed `.aab` for Google Play Console.
